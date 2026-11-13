@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Know What Your Leads Cost</title>
+<meta name="description" content="We track every Angi, Thumbtack and Google lead you pay for and show your real cost per booked job. Las Vegas contractors, 10 founding spots.">
+<style>
+  :root { --bg:#f8fafb; --ink:#17202a; --muted:#56606b; --accent:#0f766e; --card:#fff; --line:#e1e6ea; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#12171b; --ink:#eef2f4; --muted:#a2acb5; --accent:#2dd4bf; --card:#1b2227; --line:#2c353c; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+  .wrap { max-width:680px; margin:0 auto; padding:40px 16px 64px; }
+  h1 { font-size:clamp(30px,6vw,44px); line-height:1.1; margin:0 0 14px; letter-spacing:-0.02em; }
+  h2 { font-size:22px; margin:40px 0 10px; }
+  p.lead { font-size:19px; color:var(--muted); margin:0 0 24px; }
+  .btn { display:inline-block; background:var(--accent); color:#fff; padding:14px 22px; border-radius:10px; text-decoration:none; font-weight:600; }
+  @media (prefers-color-scheme: dark) { .btn { color:#06201d; } }
+  .cols { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  @media (max-width:560px){ .cols { grid-template-columns:1fr; } }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px; }
+  .card h3 { margin:0 0 6px; font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); }
+  ol, ul { padding-left:20px; } li { margin:6px 0; }
+  form { display:grid; gap:12px; }
+  label { font-weight:600; font-size:15px; }
+  input, select { width:100%; padding:12px; font:inherit; border:1px solid var(--line); border-radius:8px; background:var(--card); color:var(--ink); }
+  button { border:0; cursor:pointer; font:inherit; }
+  .small { font-size:14px; color:var(--muted); }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <h1>Find out what a booked job really costs you on Angi and Thumbtack.</h1>
+  <p class="lead">We track every lead you pay for, from charge to "booked" or "dead," and flag the bad ones so you can claim credit fast. In 30 days you'll know which platform is worth the money and which to cut.</p>
+  <a class="btn" href="#reserve">Reserve a founding spot</a>
+  <p class="small">10 founding spots for Las Vegas and Henderson contractors. Free for the first month.</p>
+
+  <h2>Right now vs. with us</h2>
+  <div class="cols">
+    <div class="card"><h3>Right now</h3>
+      <ul><li>Pay for leads that never answer</li><li>Same lead sent to 4 other contractors</li><li>No idea what a booked job actually cost</li></ul></div>
+    <div class="card"><h3>With us</h3>
+      <ul><li>Every paid lead logged automatically</li><li>Bad leads flagged with what you need to request credit</li><li>One number per platform: cost per booked job</li></ul></div>
+  </div>
+
+  <h2>How it works</h2>
+  <ol>
+    <li>Forward your lead emails to your own tracking address (2 minutes to set up).</li>
+    <li>We log each lead and text you once: "booked, quoted, or dead?"</li>
+    <li>Every week you get your cost per booked job, by platform, plus a list of leads to dispute.</li>
+  </ol>
+
+  <h2>No risk</h2>
+  <p>First month is free. If we don't find at least one lead worth disputing or one platform worth cutting, you never pay anything.</p>
+
+  <h2 id="reserve">Reserve a spot</h2>
+  <form action="https://formspree.io/f/FORM_ID" method="POST">
+    <input type="hidden" name="page" value="leads">
+    <input type="hidden" name="ref" id="ref" value="">
+    <div><label for="name">Your name</label><input id="name" name="name" required></div>
+    <div><label for="biz">Business name</label><input id="biz" name="business" required></div>
+    <div><label for="phone">Cell (we'll text, not call)</label><input id="phone" name="phone" type="tel" required></div>
+    <div><label for="plat">Where do you pay for leads?</label>
+      <select id="plat" name="platforms"><option>Angi / HomeAdvisor</option><option>Thumbtack</option><option>Google Local Services Ads</option><option>Yelp</option><option>More than one</option><option>None right now</option></select></div>
+    <div><label for="spend">About how much a month on leads?</label>
+      <select id="spend" name="monthly_spend"><option>Under $200</option><option>$200–500</option><option>$500–1,500</option><option>$1,500+</option></select></div>
+    <button class="btn" type="submit">Reserve my spot</button>
+    <p class="small">No card needed. We'll text you within a day to set it up.</p>
+  </form>
+
+  <p class="small" style="margin-top:40px">Built by two Las Vegas high school students. We're starting with 10 local contractors and building it around what they actually need. Not affiliated with Angi, Thumbtack, Google or Yelp.</p>
+</main>
+<script>
+  // ?r=<row id> from the text link tells us which business signed up.
+  try { var r = new URLSearchParams(location.search).get("r"); if (r) document.getElementById("ref").value = r; } catch (e) {}
+</script>
+</body>
+</html>
