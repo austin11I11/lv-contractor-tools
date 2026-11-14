@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Junior Golf Schedule Survey</title>
+<meta name="description" content="2-minute survey for junior golfers and parents: how do you pick which tournaments to play?">
+<style>
+  :root { --bg:#f7faf6; --ink:#17221a; --muted:#56635a; --accent:#1f7a3a; --card:#fff; --line:#dfe7dc; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#111712; --ink:#edf3ee; --muted:#a3b0a6; --accent:#4ade80; --card:#1a221c; --line:#2c372e; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+  .wrap { max-width:640px; margin:0 auto; padding:36px 16px 64px; }
+  h1 { font-size:clamp(28px,6vw,38px); line-height:1.15; margin:0 0 12px; letter-spacing:-0.02em; }
+  p.lead { color:var(--muted); margin:0 0 24px; }
+  form { display:grid; gap:18px; }
+  fieldset { border:1px solid var(--line); border-radius:12px; background:var(--card); padding:14px 16px; margin:0; }
+  legend, label.q { font-weight:600; font-size:16px; padding:0 4px; }
+  .opts label { display:block; margin:6px 0; font-size:16px; }
+  input[type=text], input[type=email], select, textarea { width:100%; padding:11px; font:inherit; border:1px solid var(--line); border-radius:8px; background:var(--card); color:var(--ink); margin-top:6px; }
+  textarea { min-height:70px; }
+  .box { border:1px solid var(--line); border-radius:12px; background:var(--card); padding:14px 16px; }
+  button { border:0; cursor:pointer; font:inherit; background:var(--accent); color:#fff; padding:14px 22px; border-radius:10px; font-weight:600; }
+  @media (prefers-color-scheme: dark) { button { color:#08200f; } }
+  .small { font-size:14px; color:var(--muted); }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <h1>How do you pick which junior tournaments to play?</h1>
+  <p class="lead">We're two high school golfers in Las Vegas trying to understand how families plan a tournament season, and what it costs. 2 minutes, 7 questions. Not selling anything.</p>
+
+  <form action="https://formspree.io/f/mqpqadwk" method="POST">
+    <input type="hidden" name="page" value="golf-survey">
+    <input type="hidden" name="ref" id="ref" value="">
+
+    <fieldset class="opts"><legend>1. You are a…</legend>
+      <label><input type="radio" name="role" value="junior golfer" required> Junior golfer</label>
+      <label><input type="radio" name="role" value="parent"> Parent of a junior golfer</label>
+      <label><input type="radio" name="role" value="coach"> Coach</label>
+    </fieldset>
+
+    <fieldset class="opts"><legend>2. Tournaments played (or your kid played) in the last 12 months</legend>
+      <label><input type="radio" name="events_12mo" value="0-3" required> 0–3</label>
+      <label><input type="radio" name="events_12mo" value="4-7"> 4–7</label>
+      <label><input type="radio" name="events_12mo" value="8-14"> 8–14</label>
+      <label><input type="radio" name="events_12mo" value="15+"> 15+</label>
+    </fieldset>
+
+    <fieldset class="opts"><legend>3. Roughly what did the last season cost, all in (entry fees + travel + hotels)?</legend>
+      <label><input type="radio" name="season_cost" value="under 1k" required> Under $1,000</label>
+      <label><input type="radio" name="season_cost" value="1k-3k"> $1,000–3,000</label>
+      <label><input type="radio" name="season_cost" value="3k-7k"> $3,000–7,000</label>
+      <label><input type="radio" name="season_cost" value="7k-15k"> $7,000–15,000</label>
+      <label><input type="radio" name="season_cost" value="15k+"> $15,000+</label>
+      <label><input type="radio" name="season_cost" value="not sure"> Not sure</label>
+    </fieldset>
+
+    <div class="box"><label class="q" for="how">4. How did you decide which tournaments to enter? (The last one you signed up for.)</label>
+      <textarea id="how" name="how_they_pick"></textarea></div>
+
+    <fieldset class="opts"><legend>5. Do you track a ranking? (pick any)</legend>
+      <label><input type="checkbox" name="rank_jgs" value="yes"> Junior Golf Scoreboard</label>
+      <label><input type="checkbox" name="rank_ajga" value="yes"> Rolex AJGA</label>
+      <label><input type="checkbox" name="rank_wagr" value="yes"> WAGR</label>
+      <label><input type="checkbox" name="rank_none" value="yes"> No / don't know</label>
+    </fieldset>
+
+    <div class="box"><label class="q" for="regret">5b. Any tournament you regret playing because it cost a lot or didn't help? Why?</label>
+      <textarea id="regret" name="regret_event"></textarea></div>
+
+    <fieldset class="opts"><legend>6. How hard is picking the right tournaments for the money?</legend>
+      <label><input type="radio" name="pain_1to5" value="1" required> 1 – Easy, we just play local events</label>
+      <label><input type="radio" name="pain_1to5" value="2"> 2</label>
+      <label><input type="radio" name="pain_1to5" value="3"> 3 – Somewhat of a guess</label>
+      <label><input type="radio" name="pain_1to5" value="4"> 4</label>
+      <label><input type="radio" name="pain_1to5" value="5"> 5 – A real guessing game that costs us money</label>
+    </fieldset>
+
+    <div class="box"><label class="q" for="tools">7. Used anything to plan your schedule (AmateurGolf, a coach, a spreadsheet)? What's missing?</label>
+      <textarea id="tools" name="tools_used"></textarea></div>
+
+    <div class="box">
+      <label class="q" for="email">Want a free season plan? We're making a few by hand: which events give the most ranking boost per dollar from your home city. Leave an email (optional).</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com">
+      <input type="text" name="home_city" placeholder="Home city (optional)">
+    </div>
+
+    <button type="submit">Send answers</button>
+    <p class="small">We only use your email to send the plan. We'll never share it.</p>
+  </form>
+</main>
+<script>
+  try { var r = new URLSearchParams(location.search).get("r"); if (r) document.getElementById("ref").value = r; } catch (e) {}
+</script>
+</body>
+</html>
